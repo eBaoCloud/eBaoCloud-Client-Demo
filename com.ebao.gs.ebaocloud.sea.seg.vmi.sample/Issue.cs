@@ -45,12 +45,13 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             // if yes, the payer address will be consistance with policyHolder.
             policyParam.isPayerSameAsPolicyholder = true;
 
+            String randomStr = new Random(10000000).Next().ToString();
             policyParam.insured = new Insured();
-            policyParam.insured.vehicleChassisNo = "CN011222224425fff3451";
+            policyParam.insured.vehicleChassisNo = "CN" + randomStr;
             policyParam.insured.vehicleColor = "white";
             policyParam.insured.vehicleCountry = "THA";
             policyParam.insured.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
-            policyParam.insured.vehicleRegistrationNo = "CN06667724424442ffddd5F";
+            policyParam.insured.vehicleRegistrationNo = "CN" + randomStr;
             policyParam.insured.vehicleGarageType = VehicleGarageType.GARAGE;
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";

@@ -33,8 +33,10 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.productVersion = "v1";
             policyParam.isPayerSameAsPolicyholder = true;
 
+            String randomStr = new Random(10000000).Next().ToString();
             policyParam.insured = new Insured();
-            policyParam.insured.vehicleChassisNo = "CN098313113234265";
+            policyParam.insured.vehicleChassisNo = "CN" + randomStr;
+            policyParam.insured.vehicleRegistrationNo = "CN" + randomStr;
             policyParam.insured.vehicleType = VehicleType.Sedan;
             policyParam.insured.vehicleSubType = VehicleSubType.Car_Seat_up_to_7_people;
             policyParam.insured.vehicleColor = "white";
@@ -42,7 +44,6 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.insured.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";
-            policyParam.insured.vehicleRegistrationNo = "CN11116932424232552F";
             policyParam.insured.vehicleRegistrationYear = 2016;
             policyParam.insured.vehicleUsage = VehicleUsage.PRIVATE;
             policyParam.insured.vehicleModelYear = 2016;
