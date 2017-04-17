@@ -14,7 +14,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
     public class Calculate
     {
         /// <summary>
-        ///  calculate policy premium
+        ///  Calculate policy premium
         /// </summary>
         public void CalculateAction()
         {
@@ -26,25 +26,32 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             // Prepare request parameters.
             var calculationParams = new CalculationParams();
 
-            // Maa
+            // Required properties
             calculationParams.effectiveDate = DateTime.Now.ToLocalTime();
             calculationParams.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             calculationParams.proposalDate = DateTime.Now.ToLocalTime();
             calculationParams.planCode = "TIB";
             calculationParams.productCode = "VMI";
-            calculationParams.vehicleAccessaryValue = 1000;
             calculationParams.vehicleGarageType = VehicleGarageType.GARAGE;
             calculationParams.vehicleMakeName = "TOYOTA";
             calculationParams.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
             calculationParams.vehicleModelYear = 2016;
             calculationParams.vehicleRegistrationYear = 2016;
             calculationParams.vehicleUsage = VehicleUsage.PRIVATE;
+            // Optional properties
+            calculationParams.vehicleAccessaryValue = 1000;
 
             // Invoke service method to get result.
             CalculationResp calcResp = service.Calculate(resp.token, calculationParams);
-
-            Console.WriteLine(calculationParams);
-            Console.WriteLine(calcResp);
+        
+            if (calcResp.success)
+            {
+                Console.WriteLine(calcResp);
+            }
+            else
+            {
+                Console.WriteLine("Calculate succcess: false" + "\nMessage:" + calcResp.errorMessage);
+            }
         }
     }
 }

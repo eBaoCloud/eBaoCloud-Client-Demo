@@ -26,7 +26,14 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             calculationParams.vehicleUsage = VehicleUsage.PRIVATE;
 
             CalculationResp calcResp = service.Calculate(resp.token, calculationParams);
-            Console.WriteLine(calcResp);
+            if (calcResp.success)
+            {
+                Console.WriteLine("Calculate succcess: true");
+            }
+            else
+            {
+                Console.WriteLine("Calculate succcess: false" + "\nMessage:" + calcResp.errorMessage);
+            }
         }
     }
 }

@@ -18,7 +18,6 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
 
             Issue issue = new Issue();
             issue.IssueAction();
-            
 
             Console.ReadKey();
         }

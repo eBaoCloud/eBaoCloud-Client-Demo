@@ -13,6 +13,9 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 {
     public class Issue
     {
+        /// <summary>
+        /// Issue Policy
+        /// </summary>
         public void IssueAction()
         {
             PolicyService service = new PolicyServiceImplement();
@@ -21,6 +24,8 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
 
             Policy policyParam = new Policy();
+
+            // Document(List) Upload
             List<Document> documents = new List<Document>();
             Document doc = new Document();
             doc.category = DocumentCategory.DRIVING_LICENSE;
@@ -28,28 +33,34 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             doc.file = new System.IO.FileInfo("./Main.txt");
             documents.Add(doc);
             policyParam.documents = documents;
+
             policyParam.effectiveDate = DateTime.Now.ToLocalTime();
             policyParam.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             policyParam.proposalDate = DateTime.Now.ToLocalTime();
             policyParam.productCode = "VMI";
             policyParam.planCode = "TIB";
             policyParam.productVersion = "v1";
+            // isPayerSameAsPolicyholder 
+            // category - true / false
+            // if yes, the payer address will be consistance with policyHolder.
             policyParam.isPayerSameAsPolicyholder = true;
 
             policyParam.insured = new Insured();
-            policyParam.insured.vehicleChassisNo = "CN011111244425fff3451";
+            policyParam.insured.vehicleChassisNo = "CN011222224425fff3451";
             policyParam.insured.vehicleColor = "white";
             policyParam.insured.vehicleCountry = "THA";
             policyParam.insured.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
+            policyParam.insured.vehicleRegistrationNo = "CN06667724424442ffddd5F";
             policyParam.insured.vehicleGarageType = VehicleGarageType.GARAGE;
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";
-            policyParam.insured.vehicleRegistrationNo = "CN06667724424442fff345F";
             policyParam.insured.vehicleRegistrationYear = 2016;
             policyParam.insured.vehicleUsage = VehicleUsage.PRIVATE;
             policyParam.insured.vehicleModelYear = 2016;
 
             policyParam.payer = new Payer();
+            // Address
+            // Category - InThaiAddress / OutThaiAddress
             policyParam.payer.inThaiAddress = new InThaiAddress();
             policyParam.payer.inThaiAddress.district = "1001";
             policyParam.payer.inThaiAddress.postalCode = "10200";
@@ -58,6 +69,9 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.payer.inThaiAddress.subDistrict = "100101";
             policyParam.payer.name = "leon luo";
 
+            // PolicyHolder 
+            // Category - IndiPolicyholder / OrgPolicyHolder
+            // For Example: policyParam.orgPolicyhodler = new OrganizationPolicyholder();
             policyParam.indiPolicyholder = new IndividualPolicyholder();
             policyParam.indiPolicyholder.idNo = "123456";
             policyParam.indiPolicyholder.idType = "1";
@@ -73,6 +87,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.indiPolicyholder.taxNo = "10000";
             policyParam.indiPolicyholder.title = IndividualPrefix.Khun;
 
+            // Driver List
             policyParam.drivers = new List<Driver>(1);
             Driver driver = new Driver();
             policyParam.drivers.Add(driver);
@@ -81,8 +96,11 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             driver.lastName = "luo";
             driver.occupation = "1233333";
 
-            Console.WriteLine(policyParam);
-
+            // Invoke service method to get issue result.
+            // Response
+            // Success true / false
+            // errorMessage
+            // policyNo 
             IssuedResp issuedResp = service.Issue(resp.token, policyParam);
             Console.WriteLine(issuedResp);
         }

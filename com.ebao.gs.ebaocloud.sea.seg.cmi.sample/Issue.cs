@@ -34,7 +34,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.isPayerSameAsPolicyholder = true;
 
             policyParam.insured = new Insured();
-            policyParam.insured.vehicleChassisNo = "CN09831311327665";
+            policyParam.insured.vehicleChassisNo = "CN098313113234265";
             policyParam.insured.vehicleType = VehicleType.Sedan;
             policyParam.insured.vehicleSubType = VehicleSubType.Car_Seat_up_to_7_people;
             policyParam.insured.vehicleColor = "white";
@@ -42,7 +42,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.insured.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";
-            policyParam.insured.vehicleRegistrationNo = "CN0666932424232552F";
+            policyParam.insured.vehicleRegistrationNo = "CN11116932424232552F";
             policyParam.insured.vehicleRegistrationYear = 2016;
             policyParam.insured.vehicleUsage = VehicleUsage.PRIVATE;
             policyParam.insured.vehicleModelYear = 2016;
@@ -72,7 +72,13 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.indiPolicyholder.title = IndividualPrefix.Khun;
 
             IssuedResp issueResp = service.Issue(resp.token, policyParam);
-            Console.WriteLine(issueResp);
+             if (issueResp.success)
+            {
+                Console.WriteLine("Issued succcess: true" + "\nPolicyNo:" + issueResp.policyNo);
+            } else
+            {
+                Console.WriteLine("Issued succcess: false" + "\nMessage:" + issueResp.message);
+            }
         }
     }
 }

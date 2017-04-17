@@ -16,10 +16,15 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
         public static string sampleUserName = "SEG_TIB_01";
         public static string samplePassword = "eBao1234";
 
+        /// <summary>
+        /// Sign in to eBaoCloud
+        /// </summary>
         public void LoginAction()
         {
             PolicyService service = new PolicyServiceImplement();
-
+            // Response
+            // succcess true / false
+            // token - In order to calculate premium or issue a policy, you must hold this property.
             LoginResp resp = service.Login(sampleUserName, samplePassword);
             Console.WriteLine(resp);
         }
