@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="com.ebao.gs.ebaocloud.sea.seg.cmi.client">
+      <HintPath>..\..\eBaoCloud-SEA-Client\com.ebao.gs.ebaocloud.sea.seg.cmi.client\bin\Debug\com.ebao.gs.ebaocloud.sea.seg.cmi.client.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,7 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Calculate.cs" />
+    <Compile Include="CMIProgram.cs" />
+    <Compile Include="Issue.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

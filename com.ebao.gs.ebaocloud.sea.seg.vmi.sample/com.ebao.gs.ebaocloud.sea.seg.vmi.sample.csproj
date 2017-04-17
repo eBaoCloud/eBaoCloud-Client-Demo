@@ -48,7 +48,7 @@
     <Compile Include="Calculate.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="Login.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="VMIProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

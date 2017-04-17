@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
+namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
 {
-    class Program
+    class CMIProgram
     {
         static void Main(string[] args)
         {
-
             Login login = new Login();
             login.LoginAction();
 
@@ -24,6 +22,5 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 
             Console.ReadKey();
         }
-
     }
 }

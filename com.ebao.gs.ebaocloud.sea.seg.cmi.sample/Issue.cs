@@ -5,19 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 // using ebaoCloud cmi client namespace
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.api;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.response;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.parameters;
+using com.ebao.gs.ebaocloud.sea.seg.cmi.client.api;
+using com.ebao.gs.ebaocloud.sea.seg.cmi.client.parameters;
+using com.ebao.gs.ebaocloud.sea.seg.cmi.client.response;
 
-namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
+namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
 {
     public class Issue
     {
         public void IssueAction()
         {
             PolicyService service = new PolicyServiceImplement();
-            // Login request
-            // You should record the TOKEN after login in order to call the other APIs.
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
 
             Policy policyParam = new Policy();
@@ -25,26 +23,26 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             Document doc = new Document();
             doc.category = DocumentCategory.DRIVING_LICENSE;
             doc.name = "test";
-            doc.file = new System.IO.FileInfo("./Main.txt");
+            doc.file = new System.IO.FileInfo("./Main.cs");
             documents.Add(doc);
             policyParam.documents = documents;
             policyParam.effectiveDate = DateTime.Now.ToLocalTime();
             policyParam.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             policyParam.proposalDate = DateTime.Now.ToLocalTime();
-            policyParam.productCode = "VMI";
-            policyParam.planCode = "TIB";
+            policyParam.productCode = "CMI";
             policyParam.productVersion = "v1";
             policyParam.isPayerSameAsPolicyholder = true;
 
             policyParam.insured = new Insured();
-            policyParam.insured.vehicleChassisNo = "CN011111244425fff3451";
+            policyParam.insured.vehicleChassisNo = "CN09831311327665";
+            policyParam.insured.vehicleType = VehicleType.Sedan;
+            policyParam.insured.vehicleSubType = VehicleSubType.Car_Seat_up_to_7_people;
             policyParam.insured.vehicleColor = "white";
             policyParam.insured.vehicleCountry = "THA";
             policyParam.insured.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
-            policyParam.insured.vehicleGarageType = VehicleGarageType.GARAGE;
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";
-            policyParam.insured.vehicleRegistrationNo = "CN06667724424442fff345F";
+            policyParam.insured.vehicleRegistrationNo = "CN0666932424232552F";
             policyParam.insured.vehicleRegistrationYear = 2016;
             policyParam.insured.vehicleUsage = VehicleUsage.PRIVATE;
             policyParam.insured.vehicleModelYear = 2016;
@@ -56,7 +54,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.payer.inThaiAddress.province = "10";
             policyParam.payer.inThaiAddress.street = "songhu rd.";
             policyParam.payer.inThaiAddress.subDistrict = "100101";
-            policyParam.payer.name = "leon luo";
+            policyParam.payer.name = "Jacky Cheng";
 
             policyParam.indiPolicyholder = new IndividualPolicyholder();
             policyParam.indiPolicyholder.idNo = "123456";
@@ -67,24 +65,14 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.indiPolicyholder.inThaiAddress.province = "10";
             policyParam.indiPolicyholder.inThaiAddress.street = "songhu rd.";
             policyParam.indiPolicyholder.inThaiAddress.subDistrict = "100101";
-            policyParam.indiPolicyholder.lastName = "luo";
-            policyParam.indiPolicyholder.firstName = "leon";
+            policyParam.indiPolicyholder.lastName = "Cheng";
+            policyParam.indiPolicyholder.firstName = "Jacky";
             policyParam.indiPolicyholder.mobile = "1234999";
             policyParam.indiPolicyholder.taxNo = "10000";
             policyParam.indiPolicyholder.title = IndividualPrefix.Khun;
 
-            policyParam.drivers = new List<Driver>(1);
-            Driver driver = new Driver();
-            policyParam.drivers.Add(driver);
-            driver.birthday = DateTime.Now;
-            driver.firstName = "leon";
-            driver.lastName = "luo";
-            driver.occupation = "1233333";
-
-            Console.WriteLine(policyParam);
-
-            IssuedResp issuedResp = service.Issue(resp.token, policyParam);
-            Console.WriteLine(issuedResp);
+            IssuedResp issueResp = service.Issue(resp.token, policyParam);
+            Console.WriteLine(issueResp);
         }
     }
 }
