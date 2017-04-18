@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculate.cs" />
+    <Compile Include="DownloadSample.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="VMIProgram.cs" />

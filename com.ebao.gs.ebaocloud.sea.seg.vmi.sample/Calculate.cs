@@ -30,11 +30,11 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             calculationParams.effectiveDate = DateTime.Now.ToLocalTime();
             calculationParams.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             calculationParams.proposalDate = DateTime.Now.ToLocalTime();
-            calculationParams.planCode = "TIB";
+            calculationParams.planCode = "SCGG";
             calculationParams.productCode = "VMI";
             calculationParams.vehicleGarageType = VehicleGarageType.GARAGE;
             calculationParams.vehicleMakeName = "TOYOTA";
-            calculationParams.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
+            calculationParams.vehicleModelDescription = "Sedan 4dr Altis G CVT 7sp FWD 1.6i 2016";
             calculationParams.vehicleModelYear = 2016;
             calculationParams.vehicleRegistrationYear = 2016;
             calculationParams.vehicleUsage = VehicleUsage.PRIVATE;

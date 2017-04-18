@@ -33,7 +33,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.productVersion = "v1";
             policyParam.isPayerSameAsPolicyholder = true;
 
-            String randomStr = new Random(10000000).Next().ToString();
+            String randomStr = new Random(DateTime.Now.Millisecond).Next().ToString();
             policyParam.insured = new Insured();
             policyParam.insured.vehicleChassisNo = "CN" + randomStr;
             policyParam.insured.vehicleRegistrationNo = "CN" + randomStr;

@@ -38,19 +38,19 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             policyParam.proposalDate = DateTime.Now.ToLocalTime();
             policyParam.productCode = "VMI";
-            policyParam.planCode = "TIB";
-            policyParam.productVersion = "v1";
+            policyParam.planCode = "SCGG";
+            //policyParam.productVersion = "v1";
             // isPayerSameAsPolicyholder 
             // category - true / false
             // if yes, the payer address will be consistance with policyHolder.
             policyParam.isPayerSameAsPolicyholder = true;
 
-            String randomStr = new Random(10000000).Next().ToString();
+            String randomStr = new Random(DateTime.Now.Millisecond).Next().ToString();
             policyParam.insured = new Insured();
             policyParam.insured.vehicleChassisNo = "CN" + randomStr;
             policyParam.insured.vehicleColor = "white";
             policyParam.insured.vehicleCountry = "THA";
-            policyParam.insured.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
+            policyParam.insured.vehicleModelDescription = "Sedan 4dr Altis G CVT 7sp FWD 1.6i 2016";
             policyParam.insured.vehicleRegistrationNo = "CN" + randomStr;
             policyParam.insured.vehicleGarageType = VehicleGarageType.GARAGE;
             policyParam.insured.vehicleMakeName = "TOYOTA";
