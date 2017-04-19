@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// using ebaoCloud cmi client namespace
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.api;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.response;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.parameters;
+// using ebaoCloud vmi client namespace
+using com.ebaocloud.client.thai.seg.vmi.api;
+using com.ebaocloud.client.thai.seg.vmi.response;
+using com.ebaocloud.client.thai.seg.vmi.parameters;
 
 namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 {
@@ -18,9 +18,9 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
         /// </summary>
         public void IssueAction()
         {
-            PolicyService service = new PolicyServiceImplement();
+            PolicyService service = new PolicyServiceImpl();
             // Login request
-            // You should record the TOKEN after login in order to call the other APIs.
+            // You should record the TOKEN after login in order to call the other APIs. 
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
 
             Policy policyParam = new Policy();

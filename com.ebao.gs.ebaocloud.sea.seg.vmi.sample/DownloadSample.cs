@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// using ebaoCloud cmi client namespace
+// using ebaoCloud vmi client namespace
 using com.ebao.gs.ebaocloud.sea.seg.client.vmi.api;
 using com.ebao.gs.ebaocloud.sea.seg.client.vmi.response;
 using com.ebao.gs.ebaocloud.sea.seg.client.vmi.parameters;

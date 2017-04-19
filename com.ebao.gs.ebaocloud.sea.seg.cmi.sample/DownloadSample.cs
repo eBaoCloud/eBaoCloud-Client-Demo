@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using com.ebao.gs.ebaocloud.sea.seg.cmi.client.api;
-using com.ebao.gs.ebaocloud.sea.seg.cmi.client.parameters;
-using com.ebao.gs.ebaocloud.sea.seg.cmi.client.response;
+// using ebaoCloud cmi client namespace
+using com.ebaocloud.client.thai.seg.cmi.api;
+using com.ebaocloud.client.thai.seg.cmi.parameters;
+using com.ebaocloud.client.thai.seg.cmi.response;
 
 namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
 {
@@ -14,7 +15,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
     {
         public void Download()
         {
-            PolicyService service = new PolicyServiceImplement();
+            PolicyService service = new PolicyServiceImpl();
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
 
             

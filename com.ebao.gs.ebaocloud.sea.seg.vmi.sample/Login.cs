@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// using ebaoCloud cmi client namespace
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.api;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.response;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.parameters;
+// using ebaoCloud vmi client namespace
+using com.ebaocloud.client.thai.seg.vmi.api;
+using com.ebaocloud.client.thai.seg.vmi.response;
+using com.ebaocloud.client.thai.seg.vmi.parameters;
 
 namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 {
@@ -21,10 +21,11 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
         /// </summary>
         public void LoginAction()
         {
-            PolicyService service = new PolicyServiceImplement();
+            PolicyService service = new PolicyServiceImpl();
             // Response
             // succcess true / false
-            // token - In order to calculate premium or issue a policy, you must hold this property.
+            // token - In order to calculate premium or issue a policy, you must hold this property. 
+            // 
             LoginResp resp = service.Login(sampleUserName, samplePassword);
             Console.WriteLine(resp);
         }
