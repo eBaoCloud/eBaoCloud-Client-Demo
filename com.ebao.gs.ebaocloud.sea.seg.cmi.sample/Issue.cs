@@ -26,6 +26,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             doc.file = new System.IO.FileInfo("./Main.cs");
             documents.Add(doc);
             policyParam.documents = documents;
+
             policyParam.effectiveDate = DateTime.Now.ToLocalTime();
             policyParam.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             policyParam.proposalDate = DateTime.Now.ToLocalTime();
