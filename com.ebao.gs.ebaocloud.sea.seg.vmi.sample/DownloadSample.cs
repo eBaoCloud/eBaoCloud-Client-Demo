@@ -15,7 +15,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
     {
         public void Download()
         {
-            PolicyService service = new PolicyServiceImplement();
+            PolicyService service = new PolicyServiceImpl();
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
 
             service.Download(resp.token, "", "./");
