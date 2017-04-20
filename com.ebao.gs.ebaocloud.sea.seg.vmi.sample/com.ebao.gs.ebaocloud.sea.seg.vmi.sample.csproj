@@ -32,14 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="com.ebao.gs.ebaocloud.sea.seg.client">
-      <HintPath>..\..\..\Dev\eBaoCloud-SEA-Client\com.ebaocloud.client.thai.seg.vmi\bin\Debug\com.ebao.gs.ebaocloud.sea.seg.client.dll</HintPath>
-    </Reference>
     <Reference Include="com.ebaocloud.client.thai.seg.cmi">
-      <HintPath>..\..\eBaoCloud-SEA-Client\com.ebaocloud.client.thai.seg.cmi\bin\Debug\com.ebaocloud.client.thai.seg.cmi.dll</HintPath>
+      <HintPath>..\com.ebaocloud.client.thai.seg.cmi.dll</HintPath>
     </Reference>
     <Reference Include="com.ebaocloud.client.thai.seg.vmi">
-      <HintPath>..\..\eBaoCloud-Client\com.ebaocloud.client.thai.seg.vmi\bin\Debug\com.ebaocloud.client.thai.seg.vmi.dll</HintPath>
+      <HintPath>..\com.ebaocloud.client.thai.seg.vmi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

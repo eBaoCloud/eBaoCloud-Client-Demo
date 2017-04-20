@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 // using ebaoCloud vmi client namespace
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.api;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.response;
-using com.ebao.gs.ebaocloud.sea.seg.client.vmi.parameters;
+using com.ebaocloud.client.thai.seg.vmi.api;
+using com.ebaocloud.client.thai.seg.vmi.response;
+using com.ebaocloud.client.thai.seg.vmi.parameters;
 
 namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 {

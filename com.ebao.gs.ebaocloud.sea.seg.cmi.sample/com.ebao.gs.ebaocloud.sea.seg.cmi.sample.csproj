@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="com.ebaocloud.client.thai.seg.cmi">
-      <HintPath>..\..\eBaoCloud-SEA-Client\com.ebaocloud.client.thai.seg.cmi\bin\Debug\com.ebaocloud.client.thai.seg.cmi.dll</HintPath>
+      <HintPath>..\com.ebaocloud.client.thai.seg.cmi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
