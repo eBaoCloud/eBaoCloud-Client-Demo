@@ -18,8 +18,6 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             PolicyService service = new PolicyServiceImplement();
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
 
-            
-
             service.Download(resp.token, "", "./");
         }
     }
