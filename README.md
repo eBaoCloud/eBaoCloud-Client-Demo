@@ -1,3 +1,3 @@
-# eBaoCloud-Client-Demo
+# eBaoCloud-sdk-dotNet-demo
 
-This project is to demostrate how easy to using the eBaoCloud-dotNet-Client lib to talk to eBaoCloud.
+This project is to demostrate how to using the eBaoCloud-sdk-dotNet to talk to eBaoCloud.
