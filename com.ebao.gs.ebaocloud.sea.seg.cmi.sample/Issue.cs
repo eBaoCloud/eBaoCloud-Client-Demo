@@ -23,7 +23,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             Document doc = new Document();
             doc.category = DocumentCategory.DRIVING_LICENSE;
             doc.name = "test";
-            doc.file = new System.IO.FileInfo("./Main.cs");
+            doc.file = new System.IO.FileInfo("../../UploadSample.txt");
             documents.Add(doc);
             policyParam.documents = documents;
 
@@ -62,6 +62,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.indiPolicyholder.idNo = "123456";
             policyParam.indiPolicyholder.idType = "1";
             policyParam.indiPolicyholder.inThaiAddress = new InThaiAddress();
+            policyParam.indiPolicyholder.inThaiAddress.fullAddress = "24 (318 เดิม) ซ.อุดมสุข30 แยก2 ถ.อุดมสุข แขวงบางนา เขตบางนา กทม. 10260";
             policyParam.indiPolicyholder.inThaiAddress.district = "1001";
             policyParam.indiPolicyholder.inThaiAddress.postalCode = "10200";
             policyParam.indiPolicyholder.inThaiAddress.province = "10";

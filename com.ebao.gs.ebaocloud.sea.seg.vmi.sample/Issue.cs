@@ -30,7 +30,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             Document doc = new Document();
             doc.category = DocumentCategory.DRIVING_LICENSE;
             doc.name = "test";
-            doc.file = new System.IO.FileInfo("./Main.txt");
+            doc.file = new System.IO.FileInfo("../../UploadSample.txt");
             documents.Add(doc);
             policyParam.documents = documents;
 
@@ -50,11 +50,12 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.insured.vehicleChassisNo = "CN" + randomStr;
             policyParam.insured.vehicleColor = "white";
             policyParam.insured.vehicleCountry = "THA";
-            policyParam.insured.vehicleModelDescription = "Sedan 4dr Altis G CVT 7sp FWD 1.6i 2016";
+            policyParam.insured.vehicleModelDescription = "TOYO20160104";
             policyParam.insured.vehicleRegistrationNo = "CN" + randomStr;
             policyParam.insured.vehicleGarageType = VehicleGarageType.GARAGE;
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";
+            policyParam.insured.vehicleModelName = "COROLLA";
             policyParam.insured.vehicleRegistrationYear = 2016;
             policyParam.insured.vehicleUsage = VehicleUsage.PRIVATE;
             policyParam.insured.vehicleModelYear = 2016;
@@ -77,6 +78,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.indiPolicyholder.idNo = "123456";
             policyParam.indiPolicyholder.idType = "1";
             policyParam.indiPolicyholder.inThaiAddress = new InThaiAddress();
+            policyParam.indiPolicyholder.inThaiAddress.fullAddress = "24 (318 เดิม) ซ.อุดมสุข30 แยก2 ถ.อุดมสุข แขวงบางนา เขตบางนา กทม. 10260";
             policyParam.indiPolicyholder.inThaiAddress.district = "1001";
             policyParam.indiPolicyholder.inThaiAddress.postalCode = "10200";
             policyParam.indiPolicyholder.inThaiAddress.province = "10";

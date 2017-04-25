@@ -31,11 +31,12 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             calculationParams.effectiveDate = DateTime.Now.ToLocalTime();
             calculationParams.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             calculationParams.proposalDate = DateTime.Now.ToLocalTime();
-            calculationParams.planCode = "SCGG";
+            calculationParams.planCode = "SCDG";
             calculationParams.productCode = "VMI";
-            calculationParams.vehicleGarageType = VehicleGarageType.GARAGE;
+            calculationParams.vehicleGarageType = VehicleGarageType.DEALER;
             calculationParams.vehicleMakeName = "TOYOTA";
-            calculationParams.vehicleModelDescription = "Sedan 4dr Altis G CVT 7sp FWD 1.6i 2016";
+            calculationParams.vehicleModelName = "COROLLA";
+            calculationParams.vehicleModelDescription = "TOYO20160104";
             calculationParams.vehicleModelYear = 2016;
             calculationParams.vehicleRegistrationYear = 2016;
             calculationParams.vehicleUsage = VehicleUsage.PRIVATE;
@@ -44,7 +45,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 
             // Invoke service method to get result.
             CalculationResp calcResp = service.Calculate(resp.token, calculationParams);
-        
+
             if (calcResp.success)
             {
                 Console.WriteLine(calcResp);

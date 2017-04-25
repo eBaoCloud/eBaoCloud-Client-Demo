@@ -15,7 +15,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
         public void LoginAction()
         {
             PolicyService service = new PolicyServiceImpl();
-            LoginResp resp = service.Login("SEG_TIB_01", "eBao1234");
+            LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
             if (resp.success)
             {
                 Console.WriteLine("Login Success: true \nToken:" + resp.token);
