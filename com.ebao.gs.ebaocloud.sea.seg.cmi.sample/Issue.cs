@@ -51,17 +51,15 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
 
             policyParam.payer = new Payer();
             policyParam.payer.inThaiAddress = new InThaiAddress();
-            policyParam.payer.inThaiAddress.district = "1001";
-            policyParam.payer.inThaiAddress.postalCode = "10200";
-            policyParam.payer.inThaiAddress.province = "10";
-            policyParam.payer.inThaiAddress.street = "songhu rd.";
-            policyParam.payer.inThaiAddress.subDistrict = "100101";
+            policyParam.payer.inThaiAddress.smartlyMatchAddress = true;
+            policyParam.payer.inThaiAddress.fullAddress = "ชั้น 24 อาคารสาธรซิตี้ทาวเวอร์ 175 ทุ่งมหาเมฆ สาทร กรุงเทพฯ 10120";
             policyParam.payer.name = "Jacky Cheng";
 
             policyParam.indiPolicyholder = new IndividualPolicyholder();
             policyParam.indiPolicyholder.idNo = "123456";
             policyParam.indiPolicyholder.idType = "1";
             policyParam.indiPolicyholder.inThaiAddress = new InThaiAddress();
+            policyParam.indiPolicyholder.inThaiAddress.smartlyMatchAddress = true;
             policyParam.indiPolicyholder.inThaiAddress.fullAddress = "24 (318 เดิม) ซ.อุดมสุข30 แยก2 ถ.อุดมสุข แขวงบางนา เขตบางนา กทม. 10260";
             policyParam.indiPolicyholder.inThaiAddress.district = "1001";
             policyParam.indiPolicyholder.inThaiAddress.postalCode = "10200";
