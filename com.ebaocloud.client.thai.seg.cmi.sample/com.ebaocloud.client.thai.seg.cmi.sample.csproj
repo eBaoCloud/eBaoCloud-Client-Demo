@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F5861474-BC4F-4677-92FD-7D534C96AEF7}</ProjectGuid>
+    <ProjectGuid>{CA1181B0-458E-4BFF-95B3-0F83F81BFC3D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>com.ebao.gs.ebaocloud.sea.seg.vmi.sample</RootNamespace>
-    <AssemblyName>com.ebao.gs.ebaocloud.sea.seg.vmi.sample</AssemblyName>
+    <RootNamespace>com.ebaocloud.client.thai.seg.cmi.sample</RootNamespace>
+    <AssemblyName>com.ebaocloud.client.thai.seg.cmi.sample</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,9 +35,6 @@
     <Reference Include="com.ebaocloud.client.thai.seg.cmi, Version=0.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\com.ebaocloud.client.thai.seg.cmi.0.1.3\lib\net40\com.ebaocloud.client.thai.seg.cmi.dll</HintPath>
     </Reference>
-    <Reference Include="com.ebaocloud.client.thai.seg.vmi, Version=0.1.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\com.ebaocloud.client.thai.seg.vmi.0.1.3\lib\net40\com.ebaocloud.client.thai.seg.vmi.dll</HintPath>
-    </Reference>
     <Reference Include="EasyHttp, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyHttp.1.7.0\lib\net40\EasyHttp.dll</HintPath>
     </Reference>
@@ -58,10 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculate.cs" />
+    <Compile Include="CMIProgram.cs" />
     <Compile Include="DownloadSample.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="Login.cs" />
-    <Compile Include="VMIProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
