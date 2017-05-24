@@ -19,7 +19,9 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 
             Issue issue = new Issue();
             issue.IssueAction();
-            
+
+            DownloadSample downloadSample = new DownloadSample();
+            downloadSample.Download();
 
             Console.ReadKey();
         }

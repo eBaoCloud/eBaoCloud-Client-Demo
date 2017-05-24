@@ -13,7 +13,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
 {
     public class Issue
     {
-        public void IssueAction()
+        public String IssueAction()
         {
             PolicyService service = new PolicyServiceImpl();
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
@@ -21,7 +21,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             Policy policyParam = new Policy();
             List<Document> documents = new List<Document>();
             Document doc = new Document();
-            doc.category = DocumentCategory.DRIVING_LICENSE;
+            doc.documentType = "2";
             doc.name = "test";
             doc.file = new System.IO.FileInfo("../../UploadSample.txt");
             documents.Add(doc);
@@ -38,16 +38,22 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             policyParam.insured = new Insured();
             policyParam.insured.vehicleChassisNo = "CN" + randomStr;
             policyParam.insured.vehicleRegistrationNo = "CN" + randomStr;
-            policyParam.insured.vehicleType = VehicleType.Sedan;
-            policyParam.insured.vehicleSubType = VehicleSubType.Car_Seat_up_to_7_people;
             policyParam.insured.vehicleColor = "white";
             policyParam.insured.vehicleCountry = "THA";
             policyParam.insured.vehicleModelDescription = "Sedan 4dr G  6sp FWD 2.5 2016";
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";
             policyParam.insured.vehicleRegistrationYear = 2016;
-            policyParam.insured.vehicleUsage = VehicleUsage.PRIVATE;
             policyParam.insured.vehicleModelYear = 2016;
+
+            MasterDataService masterDataService = new MasterDataServiceImpl();
+            List<KeyValue> vehicleTypes = masterDataService.GetVehicleType();
+            List<CascadeValue> vehicleSubTypes = masterDataService.GetVehicleSubType(vehicleTypes[0].key);
+            List<KeyValue> vehicleUsages = masterDataService.GetVehicleUsage(vehicleSubTypes[0].key);
+
+            policyParam.insured.vehicleType = vehicleTypes[0].key;
+            policyParam.insured.vehicleSubType = vehicleSubTypes[0].key;
+            policyParam.insured.vehicleUsage = vehicleUsages[0].key;
 
             policyParam.payer = new Payer();
             policyParam.payer.inThaiAddress = new InThaiAddress();
@@ -80,6 +86,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             {
                 Console.WriteLine("Issued succcess: false" + "\nMessage:" + issueResp.message);
             }
+            return issueResp.policyNo;
         }
     }
 }

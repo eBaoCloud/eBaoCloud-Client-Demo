@@ -16,7 +16,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
         /// <summary>
         /// Issue Policy
         /// </summary>
-        public void IssueAction()
+        public String IssueAction()
         {
             PolicyService service = new PolicyServiceImpl();
             // Login request
@@ -28,7 +28,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             // Document(List) Upload
             List<Document> documents = new List<Document>();
             Document doc = new Document();
-            doc.category = DocumentCategory.DRIVING_LICENSE;
+            doc.documentType = "2";
             doc.name = "test";
             doc.file = new System.IO.FileInfo("../../UploadSample.txt");
             documents.Add(doc);
@@ -52,13 +52,18 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             policyParam.insured.vehicleCountry = "THA";
             policyParam.insured.vehicleModelDescription = "TOYO20160104";
             policyParam.insured.vehicleRegistrationNo = "CN" + randomStr;
-            policyParam.insured.vehicleGarageType = VehicleGarageType.GARAGE;
             policyParam.insured.vehicleMakeName = "TOYOTA";
             policyParam.insured.vehicleProvince = "THA";
             policyParam.insured.vehicleModelName = "COROLLA";
             policyParam.insured.vehicleRegistrationYear = 2016;
-            policyParam.insured.vehicleUsage = VehicleUsage.PRIVATE;
             policyParam.insured.vehicleModelYear = 2016;
+
+            MasterDataService masterDataService = new MasterDataServiceImpl();
+            List<KeyValue> garageTypes = masterDataService.GetVehicleGarageType();
+            List<KeyValue> vehicleType = masterDataService.GetVehicleType();
+            List<KeyValue> usages = masterDataService.GetVehicleUsage(vehicleType[0].key);
+            policyParam.insured.vehicleUsage = usages[0].key;
+            policyParam.insured.vehicleGarageType = garageTypes[0].key;
 
             policyParam.payer = new Payer();
             // Address
@@ -106,6 +111,8 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             // policyNo 
             IssuedResp issuedResp = service.Issue(resp.token, policyParam);
             Console.WriteLine(issuedResp);
+
+            return issuedResp.policyNo;
         }
     }
 }

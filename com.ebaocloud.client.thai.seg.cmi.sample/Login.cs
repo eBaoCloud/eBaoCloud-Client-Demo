@@ -10,8 +10,8 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
 {
     public class Login
     {
-        public static string sampleUserName = "TIB_01";
-        public static string samplePassword = "Seg@1234";
+        public static string sampleUserName = "SEG_TIB_01";
+        public static string samplePassword = "eBao1234";
         public void LoginAction()
         {
             PolicyService service = new PolicyServiceImpl();

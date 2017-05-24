@@ -20,6 +20,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
         public void CalculateAction()
         {
             PolicyService service = new PolicyServiceImpl();
+            MasterDataService masterDataService = new MasterDataServiceImpl();
             // Login request
             // You should record the TOKEN after login in order to call the other APIs.
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
@@ -33,13 +34,18 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             calculationParams.proposalDate = DateTime.Now.ToLocalTime();
             calculationParams.planCode = "SCDG";
             calculationParams.productCode = "VMI";
-            calculationParams.vehicleGarageType = VehicleGarageType.DEALER;
             calculationParams.vehicleMakeName = "TOYOTA";
             calculationParams.vehicleModelName = "COROLLA";
             calculationParams.vehicleModelDescription = "TOYO20160104";
             calculationParams.vehicleModelYear = 2016;
             calculationParams.vehicleRegistrationYear = 2016;
-            calculationParams.vehicleUsage = VehicleUsage.PRIVATE;
+
+            List<KeyValue> garageTypes = masterDataService.GetVehicleGarageType();
+            List<KeyValue> vehicleType = masterDataService.GetVehicleType();
+            List<KeyValue> usages = masterDataService.GetVehicleUsage(vehicleType[0].key);
+            calculationParams.vehicleUsage = usages[0].key;
+            calculationParams.vehicleGarageType = garageTypes[0].key;
+
             // Optional properties
             calculationParams.vehicleAccessaryValue = 1000;
 

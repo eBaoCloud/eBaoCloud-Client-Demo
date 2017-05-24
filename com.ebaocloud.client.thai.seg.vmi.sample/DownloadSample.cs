@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using com.ebaocloud.client.thai.seg.vmi.api;
 using com.ebaocloud.client.thai.seg.vmi.response;
 using com.ebaocloud.client.thai.seg.vmi.parameters;
-
+using System.IO;
 namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
 {
     public class DownloadSample
@@ -18,7 +18,9 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             PolicyService service = new PolicyServiceImpl();
             LoginResp resp = service.Login(Login.sampleUserName, Login.samplePassword);
 
-            service.Download(resp.token, "", "./");
+            Issue issue = new Issue();
+            String policyNo =issue.IssueAction();
+            service.DownloadPolicyForms(resp.token, policyNo, new DirectoryInfo("C:/OutputFiles"));
         }
     }
 }

@@ -23,7 +23,12 @@ namespace com.ebao.gs.ebaocloud.sea.seg.cmi.sample
             calculationParams.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             calculationParams.proposalDate = DateTime.Now.ToLocalTime();
             calculationParams.productCode = "CMI";
-            calculationParams.vehicleUsage = VehicleUsage.PRIVATE;
+
+            MasterDataService masterDataService = new MasterDataServiceImpl();
+            List<KeyValue> vehicleTypes = masterDataService.GetVehicleType();
+            List<CascadeValue> vehicleSubTypes = masterDataService.GetVehicleSubType(vehicleTypes[0].key);
+            List<KeyValue> vehicleUsages = masterDataService.GetVehicleUsage(vehicleSubTypes[0].key);
+            calculationParams.vehicleUsage = vehicleUsages[0].key;
 
             CalculationResp calcResp = service.Calculate(resp.token, calculationParams);
             if (calcResp.success)
