@@ -32,7 +32,7 @@ namespace com.ebao.gs.ebaocloud.sea.seg.vmi.sample
             calculationParams.effectiveDate = DateTime.Now.ToLocalTime();
             calculationParams.expireDate = DateTime.Now.AddYears(1).ToLocalTime();
             calculationParams.proposalDate = DateTime.Now.ToLocalTime();
-            calculationParams.planCode = "SCDG";
+            calculationParams.planCode = "SCGG";
             calculationParams.productCode = "VMI";
             calculationParams.vehicleMakeName = "TOYOTA";
             calculationParams.vehicleModelName = "COROLLA";
